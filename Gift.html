@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Love Letter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #fdf5e6;
+      color: #333;
+      padding: 20px;
+    }
+    h1 {
+      color: #ff6f61;
+      font-size: 2.5rem;
+    }
+    .hidden {
+      display: none;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .visible {
+      display: block;
+      opacity: 1;
+    }
+    button {
+      margin-top: 20px;
+      font-size: 1rem;
+      padding: 10px 20px;
+      color: #fff;
+      background-color: #ff6f61;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #ff4c41;
+    }
+    p {
+      font-size: 1.2rem;
+      margin: 10px auto;
+      max-width: 600px;
+    }
+    .heart {
+      font-size: 5rem;
+      color: #ff6f61;
+      margin-top: 20px;
+    }
+    .video-container {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Good Morning, My Love ❤️</h1>
+  <button onclick="showButtons()">Show Letters</button>
+
+  <div id="buttonsContainer" class="hidden">
+    <button onclick="showLetter('letterEng')">(ENG) 💌</button>
+    <button onclick="showLetter('letterSwe')">(SWE) 💌</button>
+    <button onclick="showLetter('letterFin')">(FIN) 💌</button>
+    <button onclick="showLetter('letterMM')">(MM) 💌</button>
+  </div>
+
+  <div id="letterEng" class="hidden">
+    <p><strong>English:</strong> To my Sunshine,
+      You are the light that brightens my days, the warmth that melts my worries, and the care that makes me feel safe. Like the sun, you give me energy, hope, and joy every single day.
+      I want to thank you for being there for me, for saving me when I needed it the most, and for loving me unconditionally. You are my sunshine, my everything, and I am so grateful for you.
+      With all my love,!</p>
+  </div>
+
+  <div id="letterSwe" class="hidden">
+    <p><strong>Swedish:</strong> Till min solstråle,
+      Du är ljuset som lyser upp mina dagar, värmen som smälter mina bekymmer och omsorgen som får mig att känna mig trygg. Som solen ger du mig energi, hopp och glädje varje dag.
+      Jag vill tacka dig för att du alltid finns där för mig, för att du räddade mig när jag behövde det som mest, och för att du älskar mig villkorslöst. Du är min solstråle, mitt allt, och jag är så tacksam för dig.
+      Med all min kärlek,!</p>
+  </div>
+
+  <div id="letterFin" class="hidden">
+    <p><strong>Finnish:</strong> Auringolleni,
+      Sinä olet valo, joka kirkastaa päiväni, lämpö, joka sulattaa huoleni, ja huoli, joka saa minun oloni tuntemaan turvalliseksi. Kuten aurinko, sinä annat minulle energiaa, toivoa ja iloa joka päivä.
+      Haluan kiittää sinua siitä, että olet aina vierelläni, pelastit minut silloin, kun tarvitsin sitä eniten, och rakastat minua ehdoitta. Olet minun aurinkoni, koko maailmani, och olen niin kiitollinen sinulle.
+      Kaikella rakkaudellani,!</p>
+  </div>
+
+  <div id="letterMM" class="hidden">
+    <p><strong>Myanmar:</strong> မမဟာမောင့်အတွက် အလင်းရောင်တစ်ခုနှယ် နွေးထွကြင်နာမှုနဲ့အလင်းရောင်ကိုသယ်ဆောင်ပေးတဲ့ မောင့်ရဲ့နေမင်းကြီး ပမာ ပေါ့ မောင့်အမျိုးသမီးလေးကို သိပ်ချစ်ပါတယ်ကွယ် မနက်ခင်းလေးမှာ မောင့်စာလေးတွေကိုဖတ်ပြီး ပျော်ပျော်ရွင်ရွင်နဲ့နိုးထလာပါ မောင့်အမျိုးသမီးလေးရေ!</p>
+    <p><strong><h2>Morning !</h2></strong></p>
+  </div>
+
+  <div class="heart">
+    <a>❤️</a>
+  </div>
+
+  <button onclick="hideAllLetters()">Close Letter</button>
+
+  <!-- New button that appears after closing letters -->
+  <div id="revealVideoButton" class="hidden">
+    <button onclick="showVideo()">Reveal My Special Video 🎥</button>
+  </div>
+
+  <!-- Video container -->
+  <div id="videoContainer" class="hidden video-container">
+    <iframe width="560" height="315" src="https://www.youtube.com/watch?v=CPX8rK3tRGQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <br>
+    <button onclick="hideVideo()">Close Video</button>
+  </div>
+
+  <script>
+    function showButtons() {
+      document.getElementById('buttonsContainer').classList.remove('hidden');
+      document.getElementById('buttonsContainer').classList.add('visible');
+    }
+
+    function showLetter(letterId) {
+      hideAllLetters();
+      document.getElementById(letterId).classList.remove('hidden');
+      document.getElementById(letterId).classList.add('visible');
+    }
+
+    function hideAllLetters() {
+      const letters = ['letterEng', 'letterSwe', 'letterFin', 'letterMM'];
+      letters.forEach(function(id) {
+        document.getElementById(id).classList.add('hidden');
+        document.getElementById(id).classList.remove('visible');
+      });
+
+      // Show the "Reveal My Special Video" button
+      document.getElementById('revealVideoButton').classList.remove('hidden');
+      document.getElementById('revealVideoButton').classList.add('visible');
+    }
+
+    function showVideo() {
+      document.getElementById('videoContainer').classList.remove('hidden');
+      document.getElementById('videoContainer').classList.add('visible');
+    }
+
+    function hideVideo() {
+      document.getElementById('videoContainer').classList.add('hidden');
+      document.getElementById('videoContainer').classList.remove('visible');
+    }
+  </script>
+</body>
+</html>
